@@ -4,7 +4,7 @@ name: build headless chrome image
 
 steps:
 - name: chrome
-  image: gghtrt520/chrome
+  image: gghtrt520/kaniko
   pull: if-not-exists
   settings:
     debug: true

@@ -1,0 +1,20 @@
+kind: pipeline
+type: docker
+name: build headless chrome image
+
+steps:
+- name: chrome
+  image: gghtrt520/chrome
+  pull: if-not-exists
+  settings:
+    debug: true
+    repo: gghtrt520/chrome
+    dockerfile: ./Dockerfile.cn
+    username:
+      from_secret: user
+    password:
+      from_secret: password
+    tags:
+      - "1.0.0"
+    when:
+      event: [ push ]
